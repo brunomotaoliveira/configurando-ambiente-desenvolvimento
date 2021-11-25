@@ -47,3 +47,10 @@ Laravel & Docker: The stream or file "/var/www/html/storage/logs/laravel.log" co
 ```bash
 sudo chmod o+w ./storage/ -R
 ```
+
+dom extension PHP
+
+~~~bash
+sudo apt-get install php-xml
+~~~
+
