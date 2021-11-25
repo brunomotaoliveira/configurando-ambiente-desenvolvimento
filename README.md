@@ -19,3 +19,22 @@ php -r "unlink('composer-setup.php');"
 ```
 
 Para verificar a versão instalada utilize: <code>composer --version</code>
+
+<hr>
+
+## Instalar o Docker Compose
+
+Primeiro faça download da versão atual do Docker: 
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Agora adicione permita executáveis no binário:
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+
+
