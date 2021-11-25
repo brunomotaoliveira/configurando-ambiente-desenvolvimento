@@ -38,3 +38,12 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 
 
+<hr>
+
+## Erros e Soluções
+
+Laravel & Docker: The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied
+
+```bash
+sudo chmod o+w ./storage/ -R
+```
