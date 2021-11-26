@@ -1,6 +1,6 @@
 # Configurando Ambiente de Desenvolvimento Linux (ZorinOS)
 
-
+### Atualizando a versão do composer para a 2
 
 Se não conseguir atualizar o composer com o <code>composer self-update --2</code>, remova o mesmo com o seguinte comando:
 
@@ -30,7 +30,7 @@ Primeiro faça download da versão atual do Docker:
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-Agora adicione permita executáveis no binário:
+Agora permita executáveis no binário:
 
 ```
 sudo chmod +x /usr/local/bin/docker-compose
@@ -42,15 +42,37 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ## Erros e Soluções
 
-Laravel & Docker: The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied
+- Laravel & Docker: The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied
 
-```bash
-sudo chmod o+w ./storage/ -R
-```
+  ~~~bash
+  sudo chmod o+w ./storage/ -R
+  ~~~
 
-dom extension PHP
+- **dom extension PHP**
 
-~~~bash
-sudo apt-get install php-xml
-~~~
+  ~~~bash
+  sudo apt-get install php-xml
+  ~~~
 
+  
+
+- **Laravel command not found**
+
+  1 - Após executar o comando <code>composer global require laravel/installer</code> você terá o diretório de configuração do composer disponivel, geralmente dentro do seu Home em <code>./config/composer/vendor/bin</code>
+
+  
+
+  2- Verificado se está lá seus arquivos, você vai executar o comando <code>nano ~/.bashrc</code> ou <code>nano ~/.zshrc</code> dependendo do seu terminal. E exportar o seu arquivo de configuração composer com o seguinte comando:
+
+  ~~~bash
+  export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+  ~~~
+
+  Depois de salvar. Atualize seu <code>.bashrc</code> ou <code>.zshrc</code> com o comando no terminal:
+
+  ~~~bash
+  source ~/.bashrc
+  source ~/.zshrc
+  ~~~
+
+  E provavelmente seu comando <code>laravel</code> será reconhecido.
