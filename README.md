@@ -1,4 +1,74 @@
-# Configurando Ambiente de Desenvolvimento Linux (ZorinOS)
+# Configurando Ambiente de Desenvolvimento Linux
+
+## Personalizando o Terminal
+
+- ##### Instalando o Oh My Zsh:
+
+  > - Instale o ZSH: <code>*apt install zsh*</code>
+  >
+  > - Instale Oh My Zsh: <code>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh; zsh</code>
+  >
+  > - Se o Shell não for alterado use esse comando: <code>sudo usermod --shell $(which zsh) $USER</code>. Depois reabra o terminal.
+  >
+  >   
+
+- ##### Recursos:
+
+  - <u>**zsh-syntax-highliting**</u>: Exibe se o comando está certo(verde) ou errado(vermelho)
+
+    ~~~bash
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    ~~~
+
+    Use o comando <code>sudo nano ~./zshrc</code> ,  e em plugins. Adicione o <code>zsh-syntax-highlighting</code>. Irá ficar assim:
+
+    ~~~bash
+    plugins=(
+    git
+    dnf
+    zsh-syntax-highlighting
+    )
+    ~~~
+
+  - **<u>zsh-autosuggestions</u>** : sugestão de comandos. 
+
+    ~~~bash
+    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    ~~~
+
+    Use o comando <code>sudo nano ~./zshrc</code>, e em plugins abaixo de highliting. Adicione <code>zsh-autosuggestions</code>
+
+    
+
+- ##### Visual:
+
+  - **<u>Fonte:</u>** https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/Hack.zip
+
+    Extrair a fonte em ~.fonts:
+
+    ~~~bash
+    mkdir ~/.fonts && cd ~/.fonts
+    unzip ~/Downloads/Hack.zip
+    ~~~
+
+    E depois escolha a fonte no terminal.
+
+  - <u>**Powerlevel9k**</u>: tema para o terminal <code>git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k</code>.
+
+    - Depois execute o comando: <code>sudo nano ~/.zshrc</code>. E altere o <code>ZSH_THEME</code> para <code>powerlevel9k/powerlevel9k</code> e abaixo adicione: <code>POWERLEVEL9K_MODE="nerdfont-complete"</code> para habilitar os icones. Fecha e abra o terminal.
+
+  - **<u>Dracula Theme para o Gnome Terminal</u>** : <code>sudo apt-get install dconf-cli</code>
+
+    ~~~bash
+    git clone https://github.com/dracula/gnome-terminal
+    cd gnome-terminal
+    ~~~
+
+    E depois: <code>./install.sh</code>
+
+    > https://draculatheme.com/gnome-terminal
+
+<hr>
 
 ### Atualizando a versão do composer para a 2
 
